@@ -1,61 +1,39 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      clipped
-    >
-      <v-list dense>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+  
 
     <v-app-bar color="primary" 
       app
       clipped-left
      
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+     
       <v-toolbar-title>Wallet</v-toolbar-title>
     </v-app-bar>
 
-    <v-content >
-      <v-container
-    
-        class="fill-height"
-        fluid
-        color="error"
-      >
+    <v-content backgorund-color="primary" >
+   
+      <v-container background-color="primary" class="fill-height" fluid>
+<Chart/>
       </v-container>
     </v-content>
-
-   
-
-    <v-footer app color="primary">
-      <span>&copy; 2019</span>
-    </v-footer>
+   <BottNav/>
   </v-app>
 </template>
 
 <script>
+import BottNav from './components/BottNav.vue';
+import Chart from './components/Chart.vue'
+
   export default {
     props: {
       source: String,
+    },
+      components: {
+      BottNav,
+      Chart
+   
+     
     },
     data: () => ({
       drawer: null,
